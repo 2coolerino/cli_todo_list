@@ -9,6 +9,14 @@
 #include <sys/wait.h>
 
 /**
+ * Converts string to bool value
+ * @param s the string to be converted
+ */
+bool to_bool(std::string const& s) {
+     return s != "0";
+}
+
+/**
  * loads the data from the inputted file data and returns the map of the data
  * @param filename
  */
@@ -22,9 +30,10 @@ std::map<std::string, bool> loadData(const std::string &filename)
   {
     std::istringstream iss(line);
     std::getline(iss, word);
-    checked = word.at(word.length() - 1);
+    std::string s(1, word.back());
+    checked = to_bool(s);
+    std::cout << "Checked:" << checked << std::endl;
     word = word.substr(0, word.length() - 2);
-
     result[word] = checked;
   }
   return result;

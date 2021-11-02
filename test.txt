@@ -1,5 +1,8 @@
-first_element 1
-homework 1
-second_element 1
-spacing test 1
-spacing test two 1
+first_element 0
+homework 0
+s p c 1
+second_element 0
+sp c 2  0
+spacing test 0
+spacing test three 0
+spacing test two 0
