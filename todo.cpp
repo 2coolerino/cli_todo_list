@@ -21,7 +21,10 @@ std::map<std::string, bool> loadData(const std::string &filename)
   while (std::getline(input, line))
   {
     std::istringstream iss(line);
-    iss >> word >> checked;
+    std::getline(iss, word);
+    checked = word.at(word.length() - 1);
+    word = word.substr(0, word.length() - 2);
+
     result[word] = checked;
   }
   return result;
@@ -60,8 +63,10 @@ void saveChanges(std::map<std::string, bool> &todo, std::string fileName)
  */
 void main_loop(std::map<std::string, bool> &todo)
 {
-  std::string userInput;
+  std::string userInput = "";
   std::cout << "Enter 'exit' to save and quit" << std::endl;
+  // If you remove this the program breaks and I dont know why lol
+  std::getline(std::cin, userInput);
   while (userInput != "exit")
   {
     int pid = fork();
@@ -84,7 +89,9 @@ void main_loop(std::map<std::string, bool> &todo)
     {
       std::istringstream iss(userInput);
       std::string command, word;
-      iss >> command >> word;
+      iss >> command;
+      std::getline(iss, word);
+      word = word.substr(1);
       if (command == "add")
       {
         todo[word] = false;
