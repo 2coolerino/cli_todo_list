@@ -1,4 +1,4 @@
-# CLI-TODOs
+# CLI_TODO_LIST
 A basic command-line todo list, allowing you to keep track of tasks right in the terminal
 
 # HOW TO USE
