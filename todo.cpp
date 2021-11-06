@@ -12,8 +12,9 @@
  * Converts string to bool value
  * @param s the string to be converted
  */
-bool to_bool(std::string const& s) {
-     return s != "0";
+bool to_bool(std::string const &s)
+{
+  return s != "0";
 }
 
 /**
@@ -38,6 +39,7 @@ std::map<std::string, bool> loadData(const std::string &filename)
   }
   return result;
 }
+
 /**
  * Method to print the contents of the map
  * @param todo
@@ -76,6 +78,7 @@ void main_loop(std::map<std::string, bool> &todo)
   std::cout << "Enter 'exit' to save and quit" << std::endl;
   // If you remove this the program breaks and I dont know why lol
   std::getline(std::cin, userInput);
+
   while (userInput != "exit")
   {
     int pid = fork();
@@ -125,7 +128,9 @@ void main_loop(std::map<std::string, bool> &todo)
 }
 
 /**
- * Main method
+ * @brief 
+ * 
+ * @return int 
  */
 int main()
 {
